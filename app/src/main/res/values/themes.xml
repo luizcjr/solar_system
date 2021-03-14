@@ -1,0 +1,194 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SolarSystem" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TextAlertTitle">
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="ButtonAlert">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bcg_btn_primary</item>
+    </style>
+
+    <style name="ButtonOutline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:minWidth">170dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:elevation" tools:ignore="NewApi">2dp</item>
+        <item name="android:background">@drawable/bcg_register_border_grey</item>
+    </style>
+
+    <style name="ButtonDefault">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minWidth">170dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/bcg_btn_primary</item>
+    </style>
+
+    <style name="ButtonOrange">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minWidth">170dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginBottom">@dimen/margin_sixty_four</item>
+        <item name="android:drawableEnd">@drawable/ic_forward</item>
+        <item name="drawableTint">@color/white</item>
+        <item name="android:padding">@dimen/margin_eight</item>
+        <item name="android:background">@drawable/bcg_orange_gradient</item>
+    </style>
+
+    <style name="TextSplashPresentation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextSplashStart">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_thirty_two</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextSplashInsertName">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/margin_sixteen</item>
+    </style>
+
+    <style name="EditGrandientBrand">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/margin_sixteen</item>
+        <item name="android:background">@drawable/bcg_brand_gradient</item>
+        <item name="android:inputType">text</item>
+        <item name="android:padding">@dimen/margin_twelve</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="TextSplashReady">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/margin_eight</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextHomeAppBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_thirty_two</item>
+        <item name="android:layout_margin">@dimen/margin_twenty_four</item>
+    </style>
+
+    <style name="TextHomePresentation">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:layout_marginStart">@dimen/margin_twenty_four</item>
+        <item name="android:layout_marginEnd">@dimen/margin_twenty_four</item>
+    </style>
+
+    <style name="TextItemsPlanetsName">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_sixteen</item>
+    </style>
+
+    <style name="TextNoResultAdapter">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_twenty</item>
+        <item name="android:layout_marginStart">@dimen/margin_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/margin_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/margin_two</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextSeeMore">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_fourteen</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextPlanetDescription">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_fourteen</item>
+        <item name="android:textColor">@color/colorGreyAdapter</item>
+    </style>
+
+    <style name="TextTitlePlanet">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/margin_twenty_four</item>
+        <item name="android:layout_margin">@dimen/margin_twenty_four</item>
+    </style>
+
+    <style name="ImageBackground">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:scaleType">center</item>
+    </style>
+</resources>

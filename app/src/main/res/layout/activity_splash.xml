@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.solarsystemclean.presentation.ui.splash.SplashViewModel" />
+
+        <variable
+            name="preferencesHelper"
+            type="com.example.solarsystemclean.util.helper.SharedPreferencesHelper" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_background_constellation"
+        tools:context=".presentation.ui.splash.SplashActivity">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/cd_background_de_planetas"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLabels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35">
+
+            <TextView
+                android:id="@+id/txtLabelPresentation"
+                style="@style/TextSplashPresentation"
+                android:text="@string/txt_aperte_o_cinto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtLabelStart"
+                style="@style/TextSplashStart"
+                android:text="@string/txt_comece_sua_jornada_pelo_sistema_solar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelPresentation" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clUser"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_sixteen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clLabels">
+
+            <TextView
+                android:id="@+id/txtInsertName"
+                style="@style/TextSplashInsertName"
+                android:text="@string/txt_para_iniciarmos_insira_seu_nome"
+                android:viewVisibility="@{preferencesHelper}"
+                app:layout_constraintBottom_toTopOf="@+id/txtReady"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtUserName"
+                style="@style/EditGrandientBrand"
+                android:hint="@string/txt_nome"
+                android:text="@={viewModel.name}"
+                android:viewVisibility="@{preferencesHelper}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInsertName" />
+
+            <TextView
+                android:id="@+id/txtReady"
+                style="@style/TextSplashReady"
+                android:text="@string/txt_pronto_para_a_decolagem"
+                app:layout_constraintBottom_toTopOf="@+id/btnHome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHome"
+                style="@style/ButtonOrange"
+                android:onClick="@{() -> viewModel.saveUser()}"
+                android:viewVisibility="@{preferencesHelper}"
+                android:text="@string/txt_comecar_agora"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

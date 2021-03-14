@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Solar System</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_favorites">Favoritos</string>
+    <string name="title_profile">Perfil</string>
+
+    //Alerts strings
+    <string name="alert_ok_action">OK</string>
+    <string name="alert_error_title">OPS!!!</string>
+    <string name="alert_success_title">Sucesso!</string>
+    <string name="alert_confirm_logout">Tem certeza de que deseja sair?</string>
+    <string name="action_no">Não</string>
+    <string name="action_yes">Sim</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_aperte_o_cinto">Aperte o cinto</string>
+    <string name="txt_comece_sua_jornada_pelo_sistema_solar">Comece sua jornada pelo sistema solar.</string>
+    <string name="txt_para_iniciarmos_insira_seu_nome">Para iniciarmos, insira seu nome:</string>
+    <string name="txt_nome">Nome</string>
+    <string name="txt_pronto_para_a_decolagem">Pronto para a decolagem?</string>
+    <string name="txt_comecar_agora">Começar agora</string>
+    <string name="cd_background_de_planetas">Background de planetas</string>
+    <string name="cd_background_de_estrelas">Background de estrelas</string>
+    <string name="cd_icon_settings">Ícone de configurações</string>
+    <string name="txt_o_que_voc_vai_aprender_hoje">O que você vai aprender hoje?</string>
+
+    <string name="txt_planets_empty">Não existem planetas cadastrados!</string>
+    <string name="txt_search_planets">Procure planetas, asteróides, estrelas...</string>
+    <string name="txt_categories">Categorias</string>
+    <string name="txt_icon_galaxies">Ícone de galáxias</string>
+    <string name="txt_icon_stars">Ícone de estrelas</string>
+    <string name="txt_icon_asteroids">Ícone de asteróides</string>
+    <string name="txt_icon_planets">Ícone de planetas</string>
+    <string name="txt_planets">Planetas</string>
+    <string name="txt_resultados_da_busca">Resultados da busca</string>
+    <string name="txt_voce_tambem_pode_gostar">Você também pode gostar</string>
+    <string name="txt_see_more">Continue lendo</string>
+    <string name="txt_acess_details_planet">Imagem para acessar detalhes do planeta</string>
+    <string name="txt_save_planet_favorite">Salvar planeta como favorito</string>
+</resources>

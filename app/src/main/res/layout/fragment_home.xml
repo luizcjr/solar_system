@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background_constellation"
+    tools:context=".presentation.ui.main.components.home.HomeFragment">
+
+    <ImageView
+        style="@style/ImageBackground"
+        android:contentDescription="@string/cd_background_de_estrelas"
+        android:src="@drawable/ic_background_constellation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        style="@style/ImageBackground"
+        android:contentDescription="@string/cd_background_de_estrelas"
+        android:src="@drawable/ic_stars_constelation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivSettings"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="@dimen/margin_twenty_four"
+                android:contentDescription="@string/cd_icon_settings"
+                android:src="@drawable/ic_settings_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtName"
+                style="@style/TextHomeAppBar"
+                app:layout_constraintEnd_toStartOf="@+id/ivSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtLabelPresentation"
+                style="@style/TextHomePresentation"
+                android:text="@string/txt_o_que_voc_vai_aprender_hoje"
+                app:layout_constraintEnd_toStartOf="@+id/ivSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtSearch"
+                style="@style/EditGrandientBrand"
+                android:layout_marginStart="@dimen/margin_twenty_four"
+                android:layout_marginTop="@dimen/margin_sixty_four"
+                android:layout_marginEnd="@dimen/margin_twenty_four"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/margin_sixteen"
+                android:drawableTint="@color/white"
+                android:hint="@string/txt_search_planets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelPresentation" />
+
+            <TextView
+                android:id="@+id/txtLabelCategories"
+                style="@style/TextHomePresentation"
+                android:layout_marginTop="@dimen/margin_twenty_four"
+                android:text="@string/txt_categories"
+                app:layout_constraintEnd_toStartOf="@+id/ivSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtSearch" />
+
+            <LinearLayout
+                android:id="@+id/llOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_twenty_four"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelCategories">
+
+                <ImageView
+                    android:id="@+id/ivPlanets"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/txt_icon_planets"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_planets" />
+
+                <ImageView
+                    android:id="@+id/ivAsteroids"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/txt_icon_asteroids"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_asteroids" />
+
+                <ImageView
+                    android:id="@+id/ivStars"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/txt_icon_stars"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_stars" />
+
+                <ImageView
+                    android:id="@+id/ivGalaxies"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/txt_icon_galaxies"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_galaxies" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtLabelPlanets"
+                style="@style/TextHomePresentation"
+                android:layout_marginTop="@dimen/margin_twenty_four"
+                android:text="@string/txt_planets"
+                app:layout_constraintEnd_toStartOf="@+id/ivSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llOptions" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlanets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_eight"
+                android:layout_marginTop="@dimen/margin_twenty_four"
+                android:layout_marginEnd="@dimen/margin_eight"
+                app:layout_constraintEnd_toStartOf="@+id/ivSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelPlanets" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
