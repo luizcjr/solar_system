@@ -28,6 +28,7 @@
     <string name="txt_o_que_voc_vai_aprender_hoje">O que você vai aprender hoje?</string>
 
     <string name="txt_planets_empty">Não existem planetas cadastrados!</string>
+    <string name="txt_planets_favorites_empty">Não existem planetas favoritos!</string>
     <string name="txt_search_planets">Procure planetas, asteróides, estrelas...</string>
     <string name="txt_categories">Categorias</string>
     <string name="txt_icon_galaxies">Ícone de galáxias</string>

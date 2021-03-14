@@ -1,7 +1,7 @@
 package com.example.solarsystemclean.domain.model
 
 data class Planets (
-    val id: String?,
+    val id: Int?,
     val name: String?,
     val resume: String?,
     val introduction: String?,

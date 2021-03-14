@@ -13,18 +13,21 @@ import com.example.solarsystemclean.R
 import com.example.solarsystemclean.databinding.SearchFragmentBinding
 import com.example.solarsystemclean.presentation.common.BaseFragment
 import com.example.solarsystemclean.presentation.ui.common.adapter.PlanetSuggestedAdapter
+import com.example.solarsystemclean.presentation.ui.main.components.favorites.FavoritesViewModel
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.util.LoadingUtil
 import com.example.solarsystemclean.util.noResultAdapter
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<SearchViewState>() {
 
     private val viewModel: SearchViewModel by viewModel()
+    private val favoritesViewModel: FavoritesViewModel by sharedViewModel()
 
     private lateinit var binding: SearchFragmentBinding
 
-    private val mSearchPlanetsAdapter by lazy { SearchAdapter(arrayListOf()) }
+    private val mSearchPlanetsAdapter by lazy { SearchAdapter(arrayListOf(), favoritesViewModel) }
 
     private val suggestedPlanetDataObserver = Observer<List<PlanetUiModel>> { list ->
         val rnds = (list.indices).random()

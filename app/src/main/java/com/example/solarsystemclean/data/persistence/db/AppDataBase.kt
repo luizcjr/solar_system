@@ -1,13 +1,15 @@
 package com.example.solarsystemclean.data.persistence.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
+import com.example.solarsystemclean.data.persistence.dao.PlanetsFavoriteDao
 import com.example.solarsystemclean.data.persistence.dao.UserDao
+import com.example.solarsystemclean.data.persistence.entity.PlanetsFavoriteEntity
 import com.example.solarsystemclean.data.persistence.entity.UserEntity
+import com.example.solarsystemclean.util.TypeConverterUtil
 
-@Database(entities = [UserEntity::class], version = 1)
+@Database(entities = [UserEntity::class, PlanetsFavoriteEntity::class], version = 1, exportSchema = false)
+@TypeConverters(TypeConverterUtil::class)
 abstract class AppDataBase : RoomDatabase() {
     companion object {
 
@@ -25,5 +27,5 @@ abstract class AppDataBase : RoomDatabase() {
     }
 
     abstract fun userDao() : UserDao
-
+    abstract fun planetsFavoritesDao() : PlanetsFavoriteDao
 }

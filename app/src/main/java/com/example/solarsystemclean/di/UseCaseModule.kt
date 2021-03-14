@@ -1,9 +1,6 @@
 package com.example.solarsystemclean.di
 
-import com.example.solarsystemclean.domain.usecase.PlanetsUseCase
-import com.example.solarsystemclean.domain.usecase.PlanetsUseCaseImpl
-import com.example.solarsystemclean.domain.usecase.UserUseCase
-import com.example.solarsystemclean.domain.usecase.UserUseCaseImpl
+import com.example.solarsystemclean.domain.usecase.*
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -14,5 +11,9 @@ val useCaseModule = module {
 
     factory<PlanetsUseCase> {
         PlanetsUseCaseImpl(get())
+    }
+
+    factory<PlanetsFavoritesUseCase> {
+        PlanetsFavoritesUseCaseImpl(get())
     }
 }

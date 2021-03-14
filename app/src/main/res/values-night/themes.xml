@@ -182,7 +182,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textSize">@dimen/margin_twenty_four</item>
+        <item name="android:textSize">@dimen/text_twenty</item>
         <item name="android:layout_margin">@dimen/margin_twenty_four</item>
     </style>
 

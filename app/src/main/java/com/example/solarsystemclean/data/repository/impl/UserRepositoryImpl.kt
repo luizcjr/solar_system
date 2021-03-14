@@ -6,8 +6,8 @@ import com.example.solarsystemclean.data.persistence.db.AppDataBase
 import com.example.solarsystemclean.data.persistence.entity.UserEntity
 import com.example.solarsystemclean.data.repository.UserRepository
 
-class UserRepositoryImpl(private val context: Context) : UserRepository {
-    val userDao = AppDataBase.getInstance(context).userDao()
+class UserRepositoryImpl(context: Context) : UserRepository {
+    private val userDao = AppDataBase.getInstance(context).userDao()
 
     override suspend fun insertUser(user: UserDTO) {
         userDao.insertUser(UserEntity.fromUser(user))

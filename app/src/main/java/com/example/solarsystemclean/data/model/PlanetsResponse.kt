@@ -4,7 +4,7 @@ import com.example.solarsystemclean.domain.model.Features
 import com.example.solarsystemclean.domain.model.Planets
 
 data class PlanetsResponse(
-    val id: String?,
+    val id: Int?,
     val name: String?,
     val resume: String?,
     val introduction: String?,

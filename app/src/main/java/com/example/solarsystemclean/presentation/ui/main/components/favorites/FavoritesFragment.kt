@@ -1,31 +1,77 @@
 package com.example.solarsystemclean.presentation.ui.main.components.favorites
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.solarsystemclean.R
+import com.example.solarsystemclean.databinding.FragmentFavoritesBinding
+import com.example.solarsystemclean.presentation.common.BaseFragment
+import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
+import com.example.solarsystemclean.util.LoadingUtil
+import com.example.solarsystemclean.util.noResultAdapter
+import com.google.gson.Gson
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class FavoritesFragment : Fragment() {
+class FavoritesFragment : BaseFragment<FavoritesViewState>() {
 
-    private lateinit var favoritesViewModel: FavoritesViewModel
+    private val viewModel: FavoritesViewModel by sharedViewModel()
+
+    private lateinit var binding: FragmentFavoritesBinding
+
+    private val mAdapter by lazy { FavoritesAdapter(arrayListOf(), viewModel) }
+
+    private val favoritePlanetDataObserver = Observer<List<PlanetUiModel>> { list ->
+        Log.d("_res", "List: ${Gson().toJson(list)}")
+        binding.rvFavorites.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = mAdapter
+        }
+
+        list?.let { mAdapter.setData(it) }
+    }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        favoritesViewModel =
-                ViewModelProvider(this).get(FavoritesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_favorites, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        favoritesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentFavoritesBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getPlanetsFavorite()
+
+        viewModel.viewState
+            .observe(viewLifecycleOwner, { state ->
+                updateViewState(state)
+            })
+    }
+
+    override fun updateViewState(viewState: FavoritesViewState) {
+        if (viewState.isLoading) {
+            LoadingUtil.onStartLoading(requireContext())
+        } else {
+            LoadingUtil.onStopLoading()
+
+            if (viewState.hasError == FavoritesViewState.Companion.FavoritesError.NO_ERROR) {
+                viewModel.planets.observe(viewLifecycleOwner, favoritePlanetDataObserver)
+            } else if (viewState.hasError == FavoritesViewState.Companion.FavoritesError.EMPTY) {
+                binding.rvFavorites.apply {
+                    layoutManager = LinearLayoutManager(context)
+                    adapter = noResultAdapter(
+                        requireContext(),
+                        requireContext().getString(R.string.txt_planets_favorites_empty),
+                        R.drawable.ic_sad
+                    )
+                }
+            }
+        }
     }
 }

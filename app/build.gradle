@@ -52,7 +52,7 @@ def koinVersion = "2.2.0"
 def gsonVersion = '2.8.6'
 def retrofitVersion = '2.9.0'
 def loggingVersion = '4.9.1'
-def roomVersion = '2.3.0-beta02'
+def roomVersion = '2.2.6'
 
 dependencies {
     implementation project(':data')
@@ -101,4 +101,5 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
 }
