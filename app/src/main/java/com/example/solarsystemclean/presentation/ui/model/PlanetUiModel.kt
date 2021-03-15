@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class PlanetUiModel(
-    val id: String?,
+    val id: Int?,
     val name: String?,
     val resume: String?,
     val introduction: String?,
@@ -19,6 +19,18 @@ class PlanetUiModel(
 ) : Parcelable
 
 fun Planets.toUiModel() = PlanetUiModel(
+    id = id,
+    name = name,
+    resume = resume,
+    introduction = introduction,
+    image = image,
+    searchTags = searchTags,
+    features = features,
+    geography = geography,
+    favorite = favorite
+)
+
+fun PlanetUiModel.toPlanets() = Planets(
     id = id,
     name = name,
     resume = resume,

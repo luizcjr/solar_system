@@ -7,12 +7,16 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.solarsystemclean.databinding.ItemsPlanetsSearchBinding
+import com.example.solarsystemclean.presentation.ui.main.components.favorites.FavoritesViewModel
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.util.AdapterDiffUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SearchAdapter(private val planets: ArrayList<PlanetUiModel>) :
+class SearchAdapter(
+    private val planets: ArrayList<PlanetUiModel>,
+    private val favoritesViewModel: FavoritesViewModel
+) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>(),
     Filterable {
 
@@ -25,8 +29,9 @@ class SearchAdapter(private val planets: ArrayList<PlanetUiModel>) :
     class ViewHolder(private val binding: ItemsPlanetsSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(planet: PlanetUiModel) {
+        fun bind(planet: PlanetUiModel, favoritesViewModel: FavoritesViewModel) {
             binding.planet = planet
+            binding.favoritesViewModel = favoritesViewModel
             //Atualiza quando tem alguma alteração nos dados
             binding.executePendingBindings()
         }
@@ -45,7 +50,7 @@ class SearchAdapter(private val planets: ArrayList<PlanetUiModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentResult = planetsFilterList[position]
 
-        holder.bind(currentResult)
+        holder.bind(currentResult, favoritesViewModel)
     }
 
     override fun getItemCount() = planetsFilterList.size

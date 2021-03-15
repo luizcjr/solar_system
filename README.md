@@ -37,11 +37,11 @@ Com isso eu criei um json e mockei no mockable.io para poder ter as informaçõe
   - [x] a lista de planetas;
   - [x] pode fazer uma busca por um planeta específico;
   - [x] sugestão de planeta que o usuário possa gostar;
-  - [ ] pode favoritar/desfavoritar um planeta (utilizando room database);.
+  - [x] pode favoritar/desfavoritar um planeta (utilizando room database);.
   
 - [x] Na tela de favoritos o usuário tem acesso:
-  - [ ] a lista de planetas favoritos;
-  - [ ] desfavoritar um planeta.
+  - [x] a lista de planetas favoritos;
+  - [x] desfavoritar um planeta.
   
 - [x] Na tela de perfil o usuário tem acesso:
   - [ ] aos seus dados;
