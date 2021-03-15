@@ -1,5 +1,6 @@
 package com.example.solarsystemclean.presentation.ui.main.components.favorites
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.solarsystemclean.domain.model.Planets
@@ -7,7 +8,9 @@ import com.example.solarsystemclean.domain.usecase.PlanetsFavoritesUseCase
 import com.example.solarsystemclean.presentation.common.BaseViewModel
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.presentation.ui.model.toUiModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.core.component.inject
 
 class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
@@ -49,6 +52,7 @@ class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
                     _planets.postValue(planetsFavoritesUseCase.invoke().map {
                         it.toUiModel()
                     })
+
                 } else {
                     updateViewState(FavoritesViewState.favoritesEmpty())
                 }
@@ -76,8 +80,6 @@ class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
         coroutineScope.launch {
             updateViewState(FavoritesViewState.favoritesSuccess())
             planetsFavoritesUseCase.invoke(id, planetToDelete)
-
-            getPlanetsFavorite()
         }
     }
 }

@@ -8,6 +8,9 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.AnimRes
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.solarsystemclean.R
 import com.example.solarsystemclean.SolarSystemApplication.Companion.appContext
 import com.example.solarsystemclean.util.helper.NoResultAdapter
@@ -42,4 +45,13 @@ fun noResultAdapter(context: Context, message: String, image: Int): NoResultAdap
         R.color.colorGreyAdapter,
         image,
     )
+}
+
+fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
+    observe(lifecycleOwner, object : Observer<T> {
+        override fun onChanged(t: T) {
+            removeObserver(this)
+            observer.onChanged(t)
+        }
+    })
 }

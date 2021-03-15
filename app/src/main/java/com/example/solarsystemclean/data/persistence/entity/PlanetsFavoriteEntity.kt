@@ -7,15 +7,14 @@ import com.example.solarsystemclean.domain.model.Planets
 
 @Entity
 data class PlanetsFavoriteEntity(
+    @PrimaryKey(autoGenerate = false)
+    var id: Int,
     var planet: Planets
 ) {
-
-    @PrimaryKey(autoGenerate = false)
-    var id: Int = 0
-
     companion object {
         fun fromPlanet(planet: Planets) =
             PlanetsFavoriteEntity(
+                id = planet.id!!,
                 planet = planet
             )
     }

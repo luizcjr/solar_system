@@ -1,5 +1,6 @@
 package com.example.solarsystemclean.presentation.ui.common.bindingadapter
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
@@ -9,6 +10,7 @@ import com.example.solarsystemclean.presentation.ui.main.components.favorites.Fa
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.presentation.ui.model.toPlanets
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 
 class FavoritesBindingAdapter {
     companion object {
@@ -53,6 +55,8 @@ class FavoritesBindingAdapter {
                     favoritesViewModel.savePlanetsFavorite(planets = planets.toPlanets())
                     showSnackBar(view, "Planeta salvo nos favoritos com sucesso!")
                 }
+
+                favoritesViewModel.getPlanetsFavorite()
             }
         }
 

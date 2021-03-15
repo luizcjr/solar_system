@@ -13,6 +13,7 @@ import com.example.solarsystemclean.presentation.common.BaseFragment
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.util.LoadingUtil
 import com.example.solarsystemclean.util.noResultAdapter
+import com.example.solarsystemclean.util.observeOnce
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -25,7 +26,6 @@ class FavoritesFragment : BaseFragment<FavoritesViewState>() {
     private val mAdapter by lazy { FavoritesAdapter(arrayListOf(), viewModel) }
 
     private val favoritePlanetDataObserver = Observer<List<PlanetUiModel>> { list ->
-        Log.d("_res", "List: ${Gson().toJson(list)}")
         binding.rvFavorites.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = mAdapter
@@ -52,6 +52,8 @@ class FavoritesFragment : BaseFragment<FavoritesViewState>() {
             .observe(viewLifecycleOwner, { state ->
                 updateViewState(state)
             })
+
+        viewModel.planets.observeOnce(viewLifecycleOwner, favoritePlanetDataObserver)
     }
 
     override fun updateViewState(viewState: FavoritesViewState) {
@@ -60,9 +62,7 @@ class FavoritesFragment : BaseFragment<FavoritesViewState>() {
         } else {
             LoadingUtil.onStopLoading()
 
-            if (viewState.hasError == FavoritesViewState.Companion.FavoritesError.NO_ERROR) {
-                viewModel.planets.observe(viewLifecycleOwner, favoritePlanetDataObserver)
-            } else if (viewState.hasError == FavoritesViewState.Companion.FavoritesError.EMPTY) {
+            if (viewState.hasError == FavoritesViewState.Companion.FavoritesError.EMPTY) {
                 binding.rvFavorites.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = noResultAdapter(

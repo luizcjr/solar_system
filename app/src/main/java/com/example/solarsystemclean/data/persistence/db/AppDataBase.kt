@@ -15,15 +15,24 @@ abstract class AppDataBase : RoomDatabase() {
 
         private const val DATABASE_NAME = "solar.db"
 
-        private var instance: AppDataBase? = null
+        @Volatile
+        private var INSTANCE: AppDataBase? = null
 
-        private fun create(context: Context): AppDataBase =
-            Room.databaseBuilder(context, AppDataBase::class.java, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .build()
+        private fun create(context: Context): AppDataBase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDataBase::class.java,
+                    DATABASE_NAME
+                ).build()
+                INSTANCE = instance
+                // return instance
+                instance
+            }
+        }
 
         fun getInstance(context: Context): AppDataBase =
-            (instance ?: create(context)).also { instance = it }
+            (INSTANCE ?: create(context)).also { INSTANCE = it }
     }
 
     abstract fun userDao() : UserDao

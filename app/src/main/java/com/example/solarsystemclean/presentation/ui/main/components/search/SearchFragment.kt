@@ -31,7 +31,7 @@ class SearchFragment : BaseFragment<SearchViewState>() {
 
     private val suggestedPlanetDataObserver = Observer<List<PlanetUiModel>> { list ->
         val rnds = (list.indices).random()
-        val mPlanetSuggestedAdapter = PlanetSuggestedAdapter(planet = list[rnds])
+        val mPlanetSuggestedAdapter = PlanetSuggestedAdapter(planet = list[rnds], favoritesViewModel)
 
         binding.rvSuggestionPlanets.apply {
             layoutManager = LinearLayoutManager(context)
