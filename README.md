@@ -85,6 +85,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   API:  **[Mockable.io](https://www.mockable.io)
 -   Editor:  **[Android Studio](https://developer.android.com/studio)**
 -   Teste de API:  **[Insomnia](https://insomnia.rest/)**
+-   Teste unitário:  **[Mockk](https://mockk.io/ANDROID.html)**
 
 ---
 
