@@ -18,7 +18,7 @@ class HomeViewModel : BaseViewModel<HomeViewState>(), KoinComponent {
     private val userUseCase: UserUseCase by inject()
 
     val name = MutableLiveData<String>().apply {
-        value = prefHelper.getLastUserSession()?.name
+        value = prefHelper.getLastUserSession()?.name!!
     }
 
     private val _planets = MutableLiveData<List<PlanetUiModel>>()

@@ -59,7 +59,6 @@ class HomeFragment : BaseFragment<HomeViewState>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.fetchPlanets()
-        viewModel.getUser()
         searchData()
 
         viewModel.name.observe(viewLifecycleOwner, Observer {
