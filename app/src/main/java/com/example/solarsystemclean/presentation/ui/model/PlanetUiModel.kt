@@ -2,7 +2,6 @@ package com.example.solarsystemclean.presentation.ui.model
 
 import android.os.Parcelable
 import com.example.solarsystemclean.domain.model.Features
-import com.example.solarsystemclean.domain.model.Planets
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -17,27 +16,3 @@ class PlanetUiModel(
     val geography: String?,
     val favorite: Boolean?
 ) : Parcelable
-
-fun Planets.toUiModel() = PlanetUiModel(
-    id = id,
-    name = name,
-    resume = resume,
-    introduction = introduction,
-    image = image,
-    searchTags = searchTags,
-    features = features,
-    geography = geography,
-    favorite = favorite
-)
-
-fun PlanetUiModel.toPlanets() = Planets(
-    id = id,
-    name = name,
-    resume = resume,
-    introduction = introduction,
-    image = image,
-    searchTags = searchTags,
-    features = features,
-    geography = geography,
-    favorite = favorite
-)

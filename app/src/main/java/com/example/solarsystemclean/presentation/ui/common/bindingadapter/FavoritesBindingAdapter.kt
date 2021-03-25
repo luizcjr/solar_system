@@ -1,19 +1,21 @@
 package com.example.solarsystemclean.presentation.ui.common.bindingadapter
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.example.solarsystemclean.R
+import com.example.solarsystemclean.data.mapper.PlanetUiMapper
 import com.example.solarsystemclean.presentation.ui.main.components.favorites.FavoritesViewModel
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
 import com.example.solarsystemclean.presentation.ui.model.toPlanets
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
 
 class FavoritesBindingAdapter {
+
     companion object {
+        private val planetUiMapper = PlanetUiMapper()
+
         @BindingAdapter("applyFavoriteColor")
         @JvmStatic
         fun applyFavoriteColor(view: ImageView, favorite: Boolean?) {
@@ -48,11 +50,11 @@ class FavoritesBindingAdapter {
                 if (favorite) {
                     favoritesViewModel.deleteFavoritePlanet(
                         id = planets.id!!,
-                        planets = planets.toPlanets()
+                        planets = planetUiMapper.toDto(planets)
                     )
                     showSnackBar(view, "Planeta removido nos favoritos com sucesso!")
                 } else {
-                    favoritesViewModel.savePlanetsFavorite(planets = planets.toPlanets())
+                    favoritesViewModel.savePlanetsFavorite(planets = planetUiMapper.toDto(planets))
                     showSnackBar(view, "Planeta salvo nos favoritos com sucesso!")
                 }
 

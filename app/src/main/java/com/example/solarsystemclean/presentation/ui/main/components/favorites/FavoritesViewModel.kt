@@ -1,16 +1,13 @@
 package com.example.solarsystemclean.presentation.ui.main.components.favorites
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.solarsystemclean.data.mapper.PlanetUiMapper
 import com.example.solarsystemclean.domain.model.Planets
 import com.example.solarsystemclean.domain.usecase.PlanetsFavoritesUseCase
 import com.example.solarsystemclean.presentation.common.BaseViewModel
 import com.example.solarsystemclean.presentation.ui.model.PlanetUiModel
-import com.example.solarsystemclean.presentation.ui.model.toUiModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.koin.core.component.inject
 
 class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
@@ -19,6 +16,8 @@ class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
 
     private val _planets = MutableLiveData<List<PlanetUiModel>>()
     val planets = _planets as LiveData<List<PlanetUiModel>>
+
+    private val planetUiMapper = PlanetUiMapper()
 
     fun savePlanetsFavorite(planets: Planets) {
         updateViewState(FavoritesViewState.loadingState())
@@ -50,7 +49,7 @@ class FavoritesViewModel : BaseViewModel<FavoritesViewState>() {
                     updateViewState(FavoritesViewState.favoritesSuccess())
 
                     _planets.postValue(planetsFavoritesUseCase.invoke().map {
-                        it.toUiModel()
+                        planetUiMapper.toEntity(it)
                     })
 
                 } else {
